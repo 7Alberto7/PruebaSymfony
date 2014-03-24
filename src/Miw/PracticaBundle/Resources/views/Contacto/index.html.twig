@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1 class="text-center">Contactos</h1>
+    
+    <form action="{{path('contacto_erase_multiple')}}" method="post" >
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Tlf. Fijo</th>
+                <th>Tlf. Móvil</th>
+                <th>Email</th>
+                <th>F. Nacimiento</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><input id="seleccion" name="seleccion[]" type="checkbox" value="{{entity.id}}"></td>
+                <td>{{ entity.nombre }}</td>
+                <td>{{ entity.apellidos }}</td>
+                <td>{{ entity.tlfFijo }}</td>
+                <td>{{ entity.tlfMovil }}</td>
+                <td>{{ entity.email }}</td>
+                <td>{% if entity.nacimiento %}{{ entity.nacimiento|date('d-m-Y') }}{% endif %}</td>
+                <td>
+                    <div class="btn-group">
+                        <a class="btn btn-info" type="button" href="{{ path('contacto_show', { 'id': entity.id }) }}">
+                            <i class="fa fa-eye"></i>
+                        </a>
+                        <a class="btn btn-primary" type="button" href="{{ path('contacto_edit', { 'id': entity.id }) }}">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a class="btn btn-danger" type="button" href="{{ path('contacto_erase', { 'id': entity.id }) }}">
+                            <i class="fa fa-trash-o"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <div class="text-center">
+        <a class="btn btn-success" href="{{ path('contacto_new') }}">
+            <i class="fa fa-plus"></i> Crear Contacto
+        </a>
+        <input class="btn btn-danger" type="submit" value="Borrado multiple"/>
+    </div>
+    </form>
+    {% endblock %}

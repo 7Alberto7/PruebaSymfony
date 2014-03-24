@@ -1,0 +1,29 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1 class="text-center">¿Estás seguro de que quieres borrar este usuario?</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Usuario</th>
+                <td>{{ entity.username }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ entity.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <div class="text-center">
+        <a class="btn btn-danger" href="{{ path('admin_delete', { 'id': entity.id }) }}">
+            <i class="fa fa-trash-o"></i> Borrar
+        </a>
+        <a class="btn btn-primary" href="{{ path('admin') }}">
+            <i class="fa fa-reply"></i> Cancelar
+        </a>
+    </div>
+{% endblock %}

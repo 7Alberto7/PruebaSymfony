@@ -1,0 +1,45 @@
+contacto:
+    pattern:  /
+    defaults: { _controller: "MiwPracticaBundle:Contacto:index" }
+
+contacto_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "MiwPracticaBundle:Contacto:show" }
+
+contacto_new:
+    pattern:  /new
+    defaults: { _controller: "MiwPracticaBundle:Contacto:new" }
+
+contacto_create:
+    pattern:  /create
+    defaults: { _controller: "MiwPracticaBundle:Contacto:create" }
+    requirements: { _method: post }
+
+contacto_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "MiwPracticaBundle:Contacto:edit" }
+
+contacto_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "MiwPracticaBundle:Contacto:update" }
+    requirements: { _method: post|put }
+
+contacto_erase:
+    pattern:  /{id}/erase
+    defaults: { _controller: "MiwPracticaBundle:Contacto:erase" }
+    requirements: { _method: get }
+
+contacto_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "MiwPracticaBundle:Contacto:delete" }
+    requirements: { _method: get }
+
+contacto_erase_multiple:
+    pattern:  /erase_multiple
+    defaults: { _controller: "MiwPracticaBundle:Contacto:eraseMultiple" }
+    requirements: { _method: post }
+    
+contacto_delete_multiple:
+    pattern:  /delete_multiple
+    defaults: { _controller: "MiwPracticaBundle:Contacto:deleteMultiple" }
+    requirements: { _method: post }

@@ -1,0 +1,64 @@
+Miw\PracticaBundle\Entity\Contacto:
+    type: entity
+    table: contacto
+    indexes:
+        users_name_fk:
+            columns:
+                - usuario_id_fk
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+        apellidos:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+        tlfFijo:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            comment: ''
+            column: tlf_fijo
+        tlfMovil:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            comment: ''
+            column: tlf_movil
+        email:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+        nacimiento:
+            type: date
+            nullable: false
+            comment: ''
+    manyToOne:
+        usuarioFk:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                usuario_id_fk:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,58 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1 class="text-center">Editar Contacto</h1>
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+        {{ form_label(form.nombre) }}
+        {{ form_errors(form.nombre) }}
+        {{ form_widget(form.nombre, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.apellidos) }}
+        {{ form_errors(form.apellidos) }}
+        {{ form_widget(form.apellidos, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.tlfFijo) }}
+        {{ form_errors(form.tlfFijo) }}
+        {{ form_widget(form.tlfFijo, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.tlfMovil) }}
+        {{ form_errors(form.tlfMovil) }}
+        {{ form_widget(form.tlfMovil, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.email) }}
+        {{ form_errors(form.email) }}
+        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.nacimiento) }}
+        {{ form_errors(form.nacimiento) }}
+        {{ form_widget(form.nacimiento) }}
+    </div>
+
+    <div class="text-center">
+        {{ form_widget(form.submit, {'attr': {'class': 'btn btn-info'}}) }}
+    </div>
+
+    {{ form_end(form) }}
+
+    <br>
+
+    <div class="text-center">
+        <a class="btn btn-primary" href="{{ path('contacto') }}">
+            <i class="fa fa-reply"></i> Volver
+        </a>
+    </div>
+{% endblock %}

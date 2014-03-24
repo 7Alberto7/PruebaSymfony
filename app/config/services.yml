@@ -1,0 +1,6 @@
+services:
+    login_success_handler:
+        class: Miw\PracticaBundle\Services\LoginSuccessHandler
+        arguments: [@router, @security.context]
+        tags:
+            - { name: 'monolog.logger', channel: 'security' }

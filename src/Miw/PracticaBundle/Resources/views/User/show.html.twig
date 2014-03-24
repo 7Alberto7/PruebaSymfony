@@ -1,0 +1,29 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1 class="text-center">{{ entity.username }}</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Email</th>
+                <td>{{ entity.email }}</td>
+            </tr>
+            <tr>
+                <th>Rol</th>
+                <td>{% if "ROLE_ADMIN" in entity.roles%}Administrador{%else%} Usuario {%endif%}</td>
+            </tr>
+            <tr>
+                <th>Última visita</th>
+                <td>{{ entity.lastLogin|date('d-m-Y H:i:s') }}</td>
+            </tr>            
+        </tbody>
+    </table>
+    <br>
+    <div class="text-center">
+        <a class="btn btn-primary" href="{{ path('admin') }}">
+            <i class="fa fa-reply"></i> Volver
+        </a>
+    </div>
+</ul>
+{% endblock %}

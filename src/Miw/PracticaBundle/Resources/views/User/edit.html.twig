@@ -1,0 +1,46 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1 class="text-center">Editar Contacto</h1>
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+        {{ form_label(form.username) }}
+        {{ form_errors(form.username) }}
+        {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.email) }}
+        {{ form_errors(form.email) }}
+        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.password) }}
+        {{ form_errors(form.password) }}
+        {{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="checkbox">
+        <label>
+            Administrador
+            <input id="admin" name="admin" type="checkbox" {% if "ROLE_ADMIN" in entity.roles%}checked{%endif%}>
+        </label>        
+    </div>
+
+    <div class="text-center">
+        {{ form_widget(form.submit, {'attr': {'class': 'btn btn-info'}}) }}
+    </div>
+
+    {{ form_end(form) }}
+
+    <br>
+
+    <div class="text-center">
+        <a class="btn btn-primary" href="{{ path('admin') }}">
+            <i class="fa fa-reply"></i> Volver
+        </a>
+    </div>
+{% endblock %}

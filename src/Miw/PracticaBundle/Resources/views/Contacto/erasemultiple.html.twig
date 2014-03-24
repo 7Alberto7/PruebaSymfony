@@ -1,0 +1,43 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1 class="text-center">¿Estás seguro de que quieres borrar estos contactos?</h1>
+    <form action="{{path('contacto_delete_multiple')}}" method="post" >
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Tlf. Fijo</th>
+                    <th>Tlf. Móvil</th>
+                    <th>Email</th>
+                    <th>F. Nacimiento</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <input id="seleccion" name="seleccion[]" type="hidden" value="{{entity.id}}">
+                    <td>{{ entity.nombre }}</td>
+                    <td>{{ entity.apellidos }}</td>
+                    <td>{{ entity.tlfFijo }}</td>
+                    <td>{{ entity.tlfMovil }}</td>
+                    <td>{{ entity.email }}</td>
+                    <td>{% if entity.nacimiento %}{{ entity.nacimiento|date('d-m-Y') }}{% endif %}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <br>
+
+        <div class="text-center">
+            <input class="btn btn-danger" type="submit" value="Borrar"/>
+
+            <a class="btn btn-primary" href="{{ path('contacto') }}">
+                <i class="fa fa-reply"></i> Cancelar
+            </a>
+        </div>
+    </form>
+{% endblock %}

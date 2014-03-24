@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1 class="text-center">Usuarios</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.username }}</td>
+                <td>{{ entity.email }}</td>
+                <td>
+                <ul>
+                    <div class="btn-group">
+                        <a class="btn btn-info" type="button" href="{{ path('admin_show', { 'id': entity.id }) }}">
+                            <i class="fa fa-eye"></i>
+                        </a>
+                        <a class="btn btn-primary" type="button" href="{{ path('admin_edit', { 'id': entity.id }) }}">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a class="btn btn-danger" type="button" href="{{ path('admin_erase', { 'id': entity.id }) }}">
+                            <i class="fa fa-trash-o"></i>
+                        </a>
+                    </div>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <div class="text-center">
+        <a class="btn btn-success" href="{{ path('admin_new') }}">
+            <i class="fa fa-plus"></i> Crear Usuario
+        </a>
+    </div>
+    {% endblock %}

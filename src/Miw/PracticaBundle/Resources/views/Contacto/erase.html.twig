@@ -1,0 +1,45 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1 class="text-center">¿Estás seguro de que quieres borrar este contacto?</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ entity.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Apellidos</th>
+                <td>{{ entity.apellidos }}</td>
+            </tr>
+            <tr>
+                <th>Tlf. Fijo</th>
+                <td>{{ entity.tlfFijo }}</td>
+            </tr>
+            <tr>
+                <th>Tlf. Móvil</th>
+                <td>{{ entity.tlfMovil }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ entity.email }}</td>
+            </tr>
+            <tr>
+                <th>F. Nacimiento</th>
+                <td>{{ entity.nacimiento|date('d-m-Y') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <div class="text-center">
+        <a class="btn btn-danger" href="{{ path('contacto_delete', { 'id': entity.id }) }}">
+            <i class="fa fa-trash-o"></i> Borrar
+        </a>
+        <a class="btn btn-primary" href="{{ path('contacto') }}">
+            <i class="fa fa-reply"></i> Cancelar
+        </a>
+    </div>
+{% endblock %}

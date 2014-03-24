@@ -1,0 +1,35 @@
+admin:
+    pattern:  /
+    defaults: { _controller: "MiwPracticaBundle:User:index" }
+
+admin_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "MiwPracticaBundle:User:show" }
+
+admin_new:
+    pattern:  /new
+    defaults: { _controller: "MiwPracticaBundle:User:new" }
+
+admin_create:
+    pattern:  /create
+    defaults: { _controller: "MiwPracticaBundle:User:create" }
+    requirements: { _method: post }
+
+admin_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "MiwPracticaBundle:User:edit" }
+
+admin_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "MiwPracticaBundle:User:update" }
+    requirements: { _method: post|put }
+
+admin_erase:
+    pattern:  /{id}/erase
+    defaults: { _controller: "MiwPracticaBundle:User:erase" }
+    requirements: { _method: get }
+
+admin_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "MiwPracticaBundle:User:delete" }
+    requirements: { _method: get }
